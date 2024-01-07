@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:newsapp/CommonHelperServices/FetchAPIData.dart';
+import 'package:newsapp/Screens/LoginScreen.dart';
 
 import 'HomeScreen.dart';
 class SplashScreen extends StatefulWidget {
@@ -22,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(Duration(seconds: 5), () {
       fetchapidata.ForTab1();
       fetchapidata.ForTab3();
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
     });
   }
 

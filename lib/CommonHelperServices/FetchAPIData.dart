@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:newsapp/Models/DataModel.dart';
+import 'package:newsapp/Models/DataModel(1,4).dart';
 import 'package:newsapp/Models/TAB3MODEL.dart';
 
 
