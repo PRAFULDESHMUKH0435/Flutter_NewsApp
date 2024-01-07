@@ -21,6 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(Duration(seconds: 5), () {
       fetchapidata.ForTab1();
+      fetchapidata.ForTab3();
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
     });
   }

@@ -20,10 +20,10 @@ class HomeScreen extends StatelessWidget {
               indicatorColor: Colors.black,
               labelColor: Colors.black,
               tabs: [
-                Tab(child: Text("Top",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.black),),),
-                Tab(child: Text("Trending",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.black),),),
+                Tab(child: Text("Technology",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.black),),),
+                Tab(child: Text("Finanace",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.black),),),
                 Tab(child: Text("National",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.black),),),
-                Tab(child: Text("Ingternational",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.black),),),
+                Tab(child: Text("International",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.black),),),
               ],
             ),
           ),
