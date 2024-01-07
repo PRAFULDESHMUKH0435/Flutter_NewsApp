@@ -28,7 +28,7 @@ class DetailsScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(14.0))
               ),
-              child: Image.network(urlToImage,fit: BoxFit.fill,),
+              child: Image.network(urlToImage??"",fit: BoxFit.fill,),
             ),
             Text(title,style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
             Expanded(child: Text(content)),

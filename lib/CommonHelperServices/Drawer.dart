@@ -3,6 +3,7 @@ import 'package:newsapp/Screens/TAB1.dart';
 import 'package:newsapp/Screens/TAB2.dart';
 import 'package:newsapp/Screens/TAB3.dart';
 import 'package:newsapp/Screens/TAB4.dart';
+import 'package:newsapp/Screens/TAB5.dart';
 class MyDRawer extends StatelessWidget {
   const MyDRawer({super.key});
 
@@ -68,6 +69,15 @@ class MyDRawer extends StatelessWidget {
                 leading: Icon(Icons.camera),
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>TAB4()));
+                },
+              ),
+
+
+              ListTile(
+                title: Text("Health",style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
+                leading: Icon(Icons.camera),
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>TAB5()));
                 },
               ),
 

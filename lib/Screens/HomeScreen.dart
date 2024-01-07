@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newsapp/CommonHelperServices/Drawer.dart';
+import 'package:newsapp/Screens/TAB5.dart';
 import 'TAB1.dart';
 import 'TAB2.dart';
 import 'TAB3.dart';
@@ -12,7 +13,7 @@ class HomeScreen extends StatelessWidget {
     return WillPopScope(
       onWillPop: ()=>_OnBackPressed(context),
       child: DefaultTabController(
-          length: 4,
+          length: 5,
           child: Scaffold(
             drawer: MyDRawer(),
             appBar: AppBar(
@@ -43,18 +44,20 @@ class HomeScreen extends StatelessWidget {
                 labelColor: Colors.black,
                 tabs: [
                   Tab(child: Text("Technology",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.black),),),
-                  Tab(child: Text("Finanace",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.black),),),
+                  Tab(child: Text("Finance",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.black),),),
                   Tab(child: Text("National",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.black),),),
                   Tab(child: Text("International",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.black),),),
+                  Tab(child: Text("Health",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.black),),),
                 ],
               ),
             ),
             body: TabBarView(
               children: [
                 TAB1(),
-                TAB2(),
                 TAB3(),
+                TAB2(),
                 TAB4(),
+                TAB5(),
               ],
             ),
           )),
