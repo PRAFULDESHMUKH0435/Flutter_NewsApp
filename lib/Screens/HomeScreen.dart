@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:newsapp/CommonHelperServices/Drawer.dart';
+import 'package:newsapp/Screens/LoginScreen.dart';
 import 'package:newsapp/Screens/TAB5.dart';
 import 'TAB1.dart';
 import 'TAB2.dart';
@@ -26,8 +28,10 @@ class HomeScreen extends StatelessWidget {
                            title: Text("Exit ?"),
                            content: Text("Are You Sure You Want To Exit "),
                            actions: [
-                             ElevatedButton(onPressed: (){
-
+                             ElevatedButton(onPressed: () async{
+                               await FirebaseAuth.instance.signOut();
+                               Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
+                               ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Successfully Logged Out ")));
                              }, child: Text("Yes")),
                              ElevatedButton(onPressed: ()=>Navigator.of(context).pop(true), child: Text("No")),
                            ],

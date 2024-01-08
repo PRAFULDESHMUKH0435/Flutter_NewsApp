@@ -1,6 +1,12 @@
 import 'dart:convert';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:newsapp/Models/DataModel.dart';
+import 'package:newsapp/Screens/HomeScreen.dart';
+import 'package:newsapp/Screens/LoginScreen.dart';
 
 
 class FETCHAPIDATA{
@@ -20,6 +26,16 @@ class FETCHAPIDATA{
   List<NewsModel> list3=[];
   List<NewsModel> list4=[];
   List<NewsModel> list5=[];
+
+
+  CheckUserIsLoggedInOrNot(BuildContext context) async{
+    final user = await FirebaseAuth.instance.currentUser;
+    if(user==null){
+     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
+    }else{
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
+    }
+  }
 
     ForTab1() async{
      final response = await http.get(Uri.parse(endpoint1));

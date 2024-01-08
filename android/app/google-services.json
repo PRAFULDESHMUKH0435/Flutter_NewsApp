@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "268758589218",
+    "project_id": "newsapp-25366",
+    "storage_bucket": "newsapp-25366.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:268758589218:android:6425025ce2f6ba08b14f7b",
+        "android_client_info": {
+          "package_name": "com.praful.newsapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzEZNH23oeRYwFALKxjE9wm2JwcfZ-VrY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

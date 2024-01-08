@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:newsapp/Screens/TAB1.dart';
 import 'package:newsapp/Screens/TAB2.dart';
@@ -5,7 +6,9 @@ import 'package:newsapp/Screens/TAB3.dart';
 import 'package:newsapp/Screens/TAB4.dart';
 import 'package:newsapp/Screens/TAB5.dart';
 class MyDRawer extends StatelessWidget {
-  const MyDRawer({super.key});
+   MyDRawer({super.key});
+
+  final user = FirebaseAuth.instance.currentUser;
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +30,8 @@ class MyDRawer extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Praful",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-                    Text("praful0435@gmail.com",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,overflow: TextOverflow.clip),)
+                    Text(user?.displayName.toString()??"Null",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                    Text(user?.email.toString()??"Null",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,overflow: TextOverflow.clip),)
                   ],
                 ),
               )
