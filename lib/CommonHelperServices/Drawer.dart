@@ -21,7 +21,7 @@ class MyDRawer extends StatelessWidget {
                   flex:1,
                   child: CircleAvatar(
                     radius: 50,
-                    backgroundImage: NetworkImage(''),
+                    backgroundImage: NetworkImage(user!.photoURL.toString()),
                   )),
               SizedBox(width: 8,),
               Expanded(
@@ -78,7 +78,7 @@ class MyDRawer extends StatelessWidget {
 
               ListTile(
                 title: Text("Health",style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
-                leading: Icon(Icons.camera),
+                leading: Icon(Icons.health_and_safety_outlined),
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>TAB5()));
                 },
