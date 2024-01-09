@@ -86,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
         context: context,
         builder: (context){
           return AlertDialog(
-            title: Text("Your's Daily Says !"),
+            title: Text("Your's Daily Says !",style: TextStyle(fontWeight: FontWeight.bold),),
             content: Text("Are You Sure You Want To Exit"),
             actions: [
               OutlinedButton(onPressed: ()=>Navigator.of(context).pop(false), child: Text("No")),
