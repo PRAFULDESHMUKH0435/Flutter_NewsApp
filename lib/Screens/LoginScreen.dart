@@ -19,7 +19,6 @@ class LoginScreen extends StatelessWidget {
           margin: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.8),
           child: Column(
             children: [
-
               SizedBox(height: 20,),
               Container(
                 child: SignInButton(

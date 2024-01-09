@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:newsapp/CommonHelperServices/InternetConnectivity.dart';
 import 'package:newsapp/Constants/SingleContainer.dart';
-
 import '../CommonHelperServices/FetchAPIData.dart';
-class TAB5 extends StatelessWidget {
+class TAB5 extends StatefulWidget {
   TAB5({super.key});
+
+  @override
+  State<TAB5> createState() => _TAB5State();
+}
+
+class _TAB5State extends State<TAB5> {
   FETCHAPIDATA fetchapidata = FETCHAPIDATA();
+  InternetConnectivity internetConnectivity = InternetConnectivity();
+
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +28,6 @@ class TAB5 extends StatelessWidget {
             return ListView.builder(
                 itemCount: fetchapidata.list5.length,
                 itemBuilder: (context,index){
-                  print("Length Is ${fetchapidata.list5.length}");
                   return SingleContainer(
                     url: fetchapidata.list5[index].url.toString(),
                     title: fetchapidata.list5[index].title.toString(),

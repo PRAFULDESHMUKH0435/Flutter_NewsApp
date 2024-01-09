@@ -1,17 +1,29 @@
+import 'dart:async';
+
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:newsapp/CommonHelperServices/Drawer.dart';
+import 'package:newsapp/CommonHelperServices/InternetConnectivity.dart';
 import 'package:newsapp/Screens/LoginScreen.dart';
 import 'package:newsapp/Screens/TAB5.dart';
 import 'TAB1.dart';
 import 'TAB2.dart';
 import 'TAB3.dart';
 import 'TAB4.dart';
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class HomeScreen extends StatefulWidget {
+   HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  InternetConnectivity internetConnectivity = InternetConnectivity();
 
   @override
   Widget build(BuildContext context) {
+    print("Build Method");
     return WillPopScope(
       onWillPop: ()=>_OnBackPressed(context),
       child: DefaultTabController(
@@ -84,5 +96,4 @@ class HomeScreen extends StatelessWidget {
         });
     return exitapp??false;
   }
-
 }

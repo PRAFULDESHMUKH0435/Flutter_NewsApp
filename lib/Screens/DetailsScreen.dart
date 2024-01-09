@@ -6,9 +6,16 @@ class DetailsScreen extends StatelessWidget {
   String description;
   String urlToImage;
   DetailsScreen({required this.url,required this.title,required this.content,required this.description,required this.urlToImage});
+  int temp =0;
+
+
+
+
+
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Your's Daily",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
@@ -31,10 +38,11 @@ class DetailsScreen extends StatelessWidget {
               child: Image.network(urlToImage??"",fit: BoxFit.fill,),
             ),
             Text(title,style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
-            Expanded(child: Text(content)),
           ],
         ),
       ),
     );
+
+
   }
 }
