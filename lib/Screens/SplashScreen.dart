@@ -42,7 +42,7 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text("Your's Daily",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 35,color: Colors.white),),
+              Text("वार्ताहार ",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 35,color: Colors.white),),
               SizedBox(height: 10,),
               Text("Your One Stop App For All National And \nInternational News",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18,color: Colors.white))
             ],

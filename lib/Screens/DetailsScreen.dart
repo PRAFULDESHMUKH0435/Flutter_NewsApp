@@ -14,7 +14,7 @@ class DetailsScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Your's Daily",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
+        title: Text("वार्ताहार",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
         backgroundColor: Colors.grey,
       ),
 

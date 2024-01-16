@@ -53,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ///
               ],
               backgroundColor: Colors.grey,
-              title: Text("Your's Daily",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
+              title: Text("वार्ताहार",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
               bottom: TabBar(
                 isScrollable: true,
                 indicatorColor: Colors.black,
