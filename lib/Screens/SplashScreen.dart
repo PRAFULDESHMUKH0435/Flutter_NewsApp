@@ -3,7 +3,6 @@ import 'package:http/http.dart' as http;
 import 'package:html/dom.dart' as dom;
 import 'package:flutter/material.dart';
 import 'package:newsapp/CommonHelperServices/FetchAPIData.dart';
-import 'package:newsapp/CommonHelperServices/WebScrap.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,7 +14,6 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
 
   FETCHAPIDATA fetchapidata = FETCHAPIDATA();
-  WebScrap scrap = WebScrap();
 
   @override
   void initState() {
@@ -23,23 +21,11 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(Duration(seconds: 5), () {
       fetchapidata.CheckUserIsLoggedInOrNot(context);
-      getWebsiteData();
     });
   }
 
 
-  getWebsiteData() async{
-    final url =  Uri.parse('https://www.hindustantimes.com/india-news/ed-summons-farooq-abdullah-for-questioning-in-money-laundering-case-101704911186229.html');
-    final response = await http.get(url);
-    dom.Document html = dom.Document.html(response.body);
 
-    final titles = html.querySelectorAll('#dataHolder > div > div.storyDetails')
-        .map((e) => e.innerHtml.trim())
-        .toList();
-
-    print("DATA IS ${titles}");
-
-  }
 
   @override
   Widget build(BuildContext context) {

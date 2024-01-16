@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:newsapp/Screens/AboutScreen.dart';
+import 'package:newsapp/Screens/QueAndAns.dart';
 import 'package:newsapp/Screens/TAB1.dart';
 import 'package:newsapp/Screens/TAB2.dart';
 import 'package:newsapp/Screens/TAB3.dart';
@@ -81,6 +83,22 @@ class MyDRawer extends StatelessWidget {
                 leading: Icon(Icons.health_and_safety_outlined),
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>TAB5()));
+                },
+              ),
+
+              ListTile(
+                title: Text("About Us",style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
+                leading: Icon(Icons.info_outline),
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>AboutScreen()));
+                },
+              ),
+
+              ListTile(
+                title: Text("Que & Ans",style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
+                leading: Icon(Icons.question_answer),
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>QueAndAns()));
                 },
               ),
 

@@ -9,10 +9,6 @@ class DetailsScreen extends StatelessWidget {
   int temp =0;
 
 
-
-
-
-
   @override
   Widget build(BuildContext context) {
 
