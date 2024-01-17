@@ -1,44 +1,53 @@
 import 'package:flutter/material.dart';
-class DetailsScreen extends StatelessWidget {
-  String url;
-  String title;
-  String content;
-  String description;
-  String urlToImage;
-  DetailsScreen({required this.url,required this.title,required this.content,required this.description,required this.urlToImage});
-  int temp =0;
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+class DetailsScreen extends StatefulWidget {
+   String url;
+   DetailsScreen({required this.url});
 
+  @override
+  State<DetailsScreen> createState() => _DetailsScreenState();
+}
+
+class _DetailsScreenState extends State<DetailsScreen> {
+  double _progress =0;
+  late InAppWebViewController webview;
+  GlobalKey<ScaffoldState> scaffoldkey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
-        title: Text("वार्ताहार",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
+        title: Text(
+          "वार्ताहार",
+          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+        ),
         backgroundColor: Colors.grey,
       ),
-
-      body: Container(
-        margin: EdgeInsets.symmetric(horizontal: 5.0),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(14.0))
-        ),
-        child: ListView(
-          children: [
-            Container(
-              height: 250,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(14.0))
-              ),
-              child: Image.network(urlToImage??"",fit: BoxFit.fill,),
-            ),
-            Text(title,style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
-          ],
-        ),
+      body: Stack(
+        children: [
+          InAppWebView(
+            initialUrlRequest: URLRequest(url: WebUri(widget.url)),
+            onWebViewCreated: (InAppWebViewController controller) {
+              webview = controller;
+            },
+            onProgressChanged:
+                (InAppWebViewController controller, int progress) {
+              setState(() {
+                _progress = progress / 100;
+              });
+            },
+          ),
+          _progress < 1
+              ? Center(
+                child: SizedBox(
+                            height: 30,
+                            width: 30,
+                            child: CircularProgressIndicator(),
+                          ),
+              )
+              : SizedBox(),
+        ],
       ),
     );
-
-
   }
 }

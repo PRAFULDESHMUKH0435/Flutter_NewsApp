@@ -16,7 +16,6 @@ class _TAB5State extends State<TAB5> {
 
   @override
   Widget build(BuildContext context) {
-    print(fetchapidata.list2.length);
     return Scaffold(
       backgroundColor: Colors.grey,
       body: FutureBuilder(
@@ -28,6 +27,7 @@ class _TAB5State extends State<TAB5> {
             return ListView.builder(
                 itemCount: fetchapidata.list5.length,
                 itemBuilder: (context,index){
+                  print("i am inside tab5 builder");
                   return SingleContainer(
                     url: fetchapidata.list5[index].url.toString(),
                     title: fetchapidata.list5[index].title.toString(),

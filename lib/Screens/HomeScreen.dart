@@ -1,6 +1,4 @@
 import 'dart:async';
-
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:newsapp/CommonHelperServices/Drawer.dart';
@@ -86,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
         context: context,
         builder: (context){
           return AlertDialog(
-            title: Text("Your's Daily Says !",style: TextStyle(fontWeight: FontWeight.bold),),
+            title: Text("वार्ताहार Says !",style: TextStyle(fontWeight: FontWeight.bold),),
             content: Text("Are You Sure You Want To Exit"),
             actions: [
               OutlinedButton(onPressed: ()=>Navigator.of(context).pop(false), child: Text("No")),

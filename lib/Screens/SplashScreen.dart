@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:http/http.dart' as http;
-import 'package:html/dom.dart' as dom;
 import 'package:flutter/material.dart';
 import 'package:newsapp/CommonHelperServices/FetchAPIData.dart';
 
