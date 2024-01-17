@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:newsapp/CommonHelperServices/InternetConnectivity.dart';
 import 'package:newsapp/Constants/SingleContainer.dart';
 
 import '../CommonHelperServices/FetchAPIData.dart';
@@ -12,10 +11,6 @@ class TAB4 extends StatefulWidget {
 
 class _TAB4State extends State<TAB4> {
   FETCHAPIDATA fetchapidata = FETCHAPIDATA();
-
-  InternetConnectivity internetConnectivity = InternetConnectivity();
-
-
 
   @override
   Widget build(BuildContext context) {

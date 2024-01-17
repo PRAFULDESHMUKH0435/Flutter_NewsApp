@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:newsapp/CommonHelperServices/Drawer.dart';
-import 'package:newsapp/CommonHelperServices/InternetConnectivity.dart';
 import 'package:newsapp/Screens/LoginScreen.dart';
 import 'package:newsapp/Screens/TAB5.dart';
 import 'TAB1.dart';
@@ -17,7 +17,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  InternetConnectivity internetConnectivity = InternetConnectivity();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,15 +40,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   showDialog(context: context,
                       builder: (context){
                          return AlertDialog(
-                           title: Text("Exit ?"),
-                           content: Text("Are You Sure You Want To Exit "),
+                           title: Text("Logout ?"),
+                           content: Text("Are You Sure You Want To Logout "),
                            actions: [
+                             ElevatedButton(onPressed: ()=>Navigator.of(context).pop(true), child: Text("No")),
                              ElevatedButton(onPressed: () async{
                                await FirebaseAuth.instance.signOut();
-                               Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
                                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Successfully Logged Out ")));
+                               // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
+                               SystemNavigator.pop();
                              }, child: Text("Yes")),
-                             ElevatedButton(onPressed: ()=>Navigator.of(context).pop(true), child: Text("No")),
                            ],
                          );
                       });

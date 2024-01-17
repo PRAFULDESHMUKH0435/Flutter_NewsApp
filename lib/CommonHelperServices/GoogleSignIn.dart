@@ -62,7 +62,6 @@ class Authentication {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
         }
       } catch (e) {
-        // handle the error here
         print(e);
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
       }
