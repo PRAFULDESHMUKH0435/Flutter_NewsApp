@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newsapp/CommonHelperServices/InternetConnectionCheck.dart';
 import 'package:newsapp/Constants/SingleContainer.dart';
 import '../CommonHelperServices/FetchAPIData.dart';
 class TAB1 extends StatefulWidget {
@@ -10,7 +11,7 @@ class TAB1 extends StatefulWidget {
 
 class _TAB1State extends State<TAB1> {
    FETCHAPIDATA fetchapidata = FETCHAPIDATA();
-
+   InternetConnectionCheck check = InternetConnectionCheck();
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,6 @@ class _TAB1State extends State<TAB1> {
              return ListView.builder(
                  itemCount: fetchapidata.list1.length,
                  itemBuilder: (context,index){
-                   // print("Length Is ${fetchapidata.list1.length}");
                    return SingleContainer(
                      url: fetchapidata.list1[index].url.toString(),
                      title: fetchapidata.list1[index].title.toString(),

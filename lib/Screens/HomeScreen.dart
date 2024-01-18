@@ -47,8 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
                              ElevatedButton(onPressed: () async{
                                await FirebaseAuth.instance.signOut();
                                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Successfully Logged Out ")));
-                               // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
-                               SystemNavigator.pop();
+                               Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>LoginScreen()), (route) => false);
                              }, child: Text("Yes")),
                            ],
                          );

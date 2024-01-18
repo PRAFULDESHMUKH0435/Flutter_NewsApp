@@ -25,11 +25,11 @@ class LoginScreen extends StatelessWidget {
                   Buttons.Google,
                   text: "Sign up with Google",
                   onPressed: () {
+                    showDialog(context: context, builder: (context)=>Center(child: CircularProgressIndicator()));
                     Authentication.signInWithGoogle(context: context);
                   },
                 ),
               ),
-
             ],
           ),
         ),

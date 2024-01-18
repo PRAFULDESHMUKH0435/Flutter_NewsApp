@@ -60,13 +60,13 @@ class Authentication {
           // handle the error here
           print(e);
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
+          Navigator.pop(context);
         }
       } catch (e) {
         print(e);
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
       }
     }
-
     return user;
   }
 
