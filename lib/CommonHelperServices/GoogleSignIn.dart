@@ -48,7 +48,7 @@ class Authentication {
           SaveUserData(user);
           print("Logged In As ${user}");
           Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Signed In As ${user.displayName}")));
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Signed In As ${user.displayName}"),backgroundColor: Colors.green,));
         }
       } on FirebaseAuthException catch (e) {
         if (e.code == 'account-exists-with-different-credential') {
