@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:newsapp/CommonHelperServices/InternetConnectionCheck.dart';
 class DetailsScreen extends StatefulWidget {
    String url;
    DetailsScreen({required this.url});
@@ -12,9 +13,11 @@ class _DetailsScreenState extends State<DetailsScreen> {
   double _progress =0;
   late InAppWebViewController webview;
   GlobalKey<ScaffoldState> scaffoldkey = GlobalKey<ScaffoldState>();
+  InternetConnectionCheck check = InternetConnectionCheck();
 
   @override
   Widget build(BuildContext context) {
+    check.checkInternetConnection(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(

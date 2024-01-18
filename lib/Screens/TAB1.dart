@@ -15,6 +15,7 @@ class _TAB1State extends State<TAB1> {
 
   @override
   Widget build(BuildContext context) {
+    check.checkInternetConnection(context);
     return Scaffold(
       backgroundColor: Colors.grey,
        body: FutureBuilder(

@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
 import 'package:newsapp/CommonHelperServices/GoogleSignIn.dart';
+import 'package:newsapp/CommonHelperServices/InternetConnectionCheck.dart';
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
-
+   LoginScreen({super.key});
+   InternetConnectionCheck check = InternetConnectionCheck();
   @override
   Widget build(BuildContext context) {
+    check.checkInternetConnection(context);
     return Scaffold(
       body: Container(
         height: double.infinity,

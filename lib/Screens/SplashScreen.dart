@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:newsapp/CommonHelperServices/FetchAPIData.dart';
+import 'package:newsapp/CommonHelperServices/InternetConnectionCheck.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -13,11 +14,13 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
 
   FETCHAPIDATA fetchapidata = FETCHAPIDATA();
+  InternetConnectionCheck check = InternetConnectionCheck();
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    check.checkInternetConnection(context);
     Timer(Duration(seconds: 5), () {
       fetchapidata.CheckUserIsLoggedInOrNot(context);
     });

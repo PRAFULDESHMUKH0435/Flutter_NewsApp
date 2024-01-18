@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newsapp/CommonHelperServices/InternetConnectionCheck.dart';
 import 'package:newsapp/Constants/SingleContainer.dart';
 
 import '../CommonHelperServices/FetchAPIData.dart';
@@ -11,9 +12,11 @@ class TAB3 extends StatefulWidget {
 
 class _TAB3State extends State<TAB3> {
   FETCHAPIDATA fetchapidata = FETCHAPIDATA();
+  InternetConnectionCheck check = InternetConnectionCheck();
 
   @override
   Widget build(BuildContext context) {
+    check.checkInternetConnection(context);
     print(fetchapidata.list3.length);
     return Scaffold(
       backgroundColor: Colors.grey,

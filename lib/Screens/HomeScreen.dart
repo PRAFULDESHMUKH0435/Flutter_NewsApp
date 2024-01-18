@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:newsapp/CommonHelperServices/Drawer.dart';
+import 'package:newsapp/CommonHelperServices/InternetConnectionCheck.dart';
 import 'package:newsapp/Screens/LoginScreen.dart';
 import 'package:newsapp/Screens/TAB5.dart';
 import 'TAB1.dart';
@@ -14,15 +15,13 @@ class HomeScreen extends StatefulWidget {
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
+
 }
 
 class _HomeScreenState extends State<HomeScreen> {
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
+  InternetConnectionCheck check = InternetConnectionCheck();
+
 
   @override
   Widget build(BuildContext context) {
