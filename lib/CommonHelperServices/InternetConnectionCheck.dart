@@ -11,7 +11,6 @@ class InternetConnectionCheck{
         connectivityResult == ConnectivityResult.wifi) {
       // The device is connected to the internet
       print("Internet Connected");
-      // ShowSnackbar(context, "Internet Connected");
       return true;
     } else {
       // The device is not connected to the internet
