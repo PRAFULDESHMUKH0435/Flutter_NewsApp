@@ -18,7 +18,7 @@ if (localPropertiesFile.exists()) {
 
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
 if (flutterVersionCode == null) {
-    flutterVersionCode = '1'
+    flutterVersionCode = '2'
 }
 
 def flutterVersionName = localProperties.getProperty('flutter.versionName')
@@ -44,8 +44,11 @@ android {
         minSdkVersion 21
         targetSdkVersion 34
         multiDexEnabled true
-        versionCode flutterVersionCode.toInteger()
-        versionName flutterVersionName
+//        versionCode flutterVersionCode.toInteger()
+//        versionName flutterVersionName
+         versionCode 2
+         versionName "1.0.0"
+
     }
 
     buildTypes {
@@ -64,6 +67,5 @@ dependencies {
     // Import the Firebase BoM
     implementation 'com.google.android.material:material:1.8.0'
     implementation platform('com.google.firebase:firebase-bom:32.7.0')
-    implementation 'com.google.firebase:firebase-analytics'
 }
 

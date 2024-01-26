@@ -51,10 +51,10 @@ class FETCHAPIDATA {
       for (Map<String, dynamic> i in data) {
         list1.add(NewsModel(
           url: i['url']??"",
-          title: i['title']??"",
-          content: i['content']??"",
-          description: i['description']??"",
-          urlToImage: i['urlToImage']??"",
+          title: i['title']??"null",
+          content: i['content']??"null",
+          description: i['description']??"null",
+          urlToImage: i['urlToImage']??"https://cdn.vectorstock.com/i/preview-1x/82/99/no-image-available-like-missing-picture-vector-43938299.jpg",
         ));
       }
     } else {
@@ -70,10 +70,10 @@ class FETCHAPIDATA {
       for (Map<String, dynamic> i in data) {
         list2.add(NewsModel(
           url: i['url']??"",
-          title: i['title']??"",
-          content: i['content']??"",
-          description: i['description']??"",
-          urlToImage: i['urlToImage']??"",
+          title: i['title']??"null",
+          content: i['content']??"null",
+          description: i['description']??"null",
+          urlToImage: i['urlToImage']??"https://cdn.vectorstock.com/i/preview-1x/82/99/no-image-available-like-missing-picture-vector-43938299.jpg",
         ));
       }
     } else {
@@ -89,10 +89,10 @@ class FETCHAPIDATA {
       for (Map<String, dynamic> i in data) {
         list3.add(NewsModel(
           url: i['url']??"",
-          title: i['title']??"",
-          content: i['content']??"",
-          description: i['description']??"",
-          urlToImage: i['urlToImage']??"",
+          title: i['title']??"null",
+          content: i['content']??"null",
+          description: i['description']??"null",
+          urlToImage: i['urlToImage']??"https://cdn.vectorstock.com/i/preview-1x/82/99/no-image-available-like-missing-picture-vector-43938299.jpg",
         ));
       }
     } else {
@@ -100,6 +100,7 @@ class FETCHAPIDATA {
     }
     print("LIST3 Is ${list3}");
   }
+
 
   ForTab4() async {
     final response = await http.get(Uri.parse(endpoint4));
@@ -109,10 +110,10 @@ class FETCHAPIDATA {
       for (Map<String, dynamic> i in data) {
         list4.add(NewsModel(
           url: i['url']??"",
-          title: i['title']??"",
-          content: i['content']??"",
-          description: i['description']??"",
-          urlToImage: i['urlToImage']??"",
+          title: i['title']??"null",
+          content: i['content']??"null",
+          description: i['description']??"null",
+          urlToImage: i['urlToImage']??"https://cdn.vectorstock.com/i/preview-1x/82/99/no-image-available-like-missing-picture-vector-43938299.jpg",
         ));
       }
       print("List4 Data Is ${list4}");
@@ -132,10 +133,10 @@ class FETCHAPIDATA {
       for(Map<String,dynamic> i in data){
         list5.add(NewsModel(
           url: i['url']??"",
-          title: i['title']??"",
-          content: i['content']??"",
-          description: i['description']??"",
-          urlToImage: i['urlToImage']??"",
+          title: i['title']??"null",
+          content: i['content']??"null",
+          description: i['description']??"null",
+          urlToImage: i['urlToImage']??"https://cdn.vectorstock.com/i/preview-1x/82/99/no-image-available-like-missing-picture-vector-43938299.jpg",
         ));
       }
     }else{

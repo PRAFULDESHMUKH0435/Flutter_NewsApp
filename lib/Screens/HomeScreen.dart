@@ -80,7 +80,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           )),
     );
-
   }
 
   Future<bool> _OnBackPressed(BuildContext context) async{
@@ -92,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
             content: Text("Are You Sure You Want To Exit"),
             actions: [
               OutlinedButton(onPressed: ()=>Navigator.of(context).pop(false), child: Text("No")),
-              OutlinedButton(onPressed: ()=>Navigator.of(context).pop(true), child: Text("Yes")),
+              OutlinedButton(onPressed: ()=>SystemNavigator.pop(), child: Text("Yes")),
             ],
           );
         });
