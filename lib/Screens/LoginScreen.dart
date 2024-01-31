@@ -3,6 +3,7 @@ import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
 import 'package:newsapp/CommonHelperServices/GoogleSignIn.dart';
 import 'package:newsapp/CommonHelperServices/InternetConnectionCheck.dart';
+import 'package:newsapp/Screens/HomeScreen.dart';
 class LoginScreen extends StatelessWidget {
    LoginScreen({super.key});
    InternetConnectionCheck check = InternetConnectionCheck();
@@ -22,14 +23,19 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(height: 20,),
-              Container(
-                child: SignInButton(
-                  Buttons.Google,
-                  text: "Sign up with Google",
-                  onPressed: () {
-                    showDialog(context: context, builder: (context)=>Center(child: CircularProgressIndicator()));
-                    Authentication.signInWithGoogle(context: context);
-                  },
+              InkWell(
+                onLongPress: (){
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
+                },
+                child: Container(
+                  child: SignInButton(
+                    Buttons.Google,
+                    text: "Sign up with Google",
+                    onPressed: () {
+                      showDialog(context: context, builder: (context)=>Center(child: CircularProgressIndicator()));
+                      Authentication.signInWithGoogle(context: context);
+                    },
+                  ),
                 ),
               ),
             ],

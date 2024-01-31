@@ -70,5 +70,4 @@ class Authentication {
     return user;
   }
 
-
 }
