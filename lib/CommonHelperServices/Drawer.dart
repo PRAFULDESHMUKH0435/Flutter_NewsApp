@@ -98,7 +98,7 @@ class MyDRawer extends StatelessWidget {
                 title: Text("Que & Ans",style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
                 leading: Icon(Icons.question_answer),
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>QueAndAns()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>QueAndAns()) );
                 },
               ),
 
