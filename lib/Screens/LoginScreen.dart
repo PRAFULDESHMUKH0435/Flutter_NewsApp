@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:newsapp/CommonHelperServices/InternetConnectionCheck.dart';
+import 'package:newsapp/Screens/HomeScreen.dart';
 import 'package:newsapp/Screens/RegistrationScreen.dart';
 class LoginScreen extends StatefulWidget {
    LoginScreen({super.key});
@@ -153,6 +154,7 @@ class _LoginScreenState extends State<LoginScreen> {
          password: _passwordcontroller.text.toString())
      .then((value){
        check.ShowSnackbar(context, "Login Successful");
+       Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>HomeScreen()), (route) => false);
        Navigator.of(context).pop();
      }).onError((error, stackTrace){
        check.ShowSnackbar(context, error.toString());
