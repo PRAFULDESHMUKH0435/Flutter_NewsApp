@@ -35,6 +35,7 @@ class FETCHAPIDATA {
 
   CheckUserIsLoggedInOrNot(BuildContext context) async {
     final user = await FirebaseAuth.instance.currentUser;
+    print("USER IS ${user}");
     if (user == null) {
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => LoginScreen()));

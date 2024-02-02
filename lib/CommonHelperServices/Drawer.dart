@@ -12,6 +12,7 @@ class MyDRawer extends StatelessWidget {
 
   final user = FirebaseAuth.instance.currentUser;
 
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -23,7 +24,7 @@ class MyDRawer extends StatelessWidget {
                   flex:1,
                   child: CircleAvatar(
                     radius: 50,
-                    backgroundImage: NetworkImage(user!.photoURL.toString()),
+                    backgroundImage: AssetImage('assets/Images/img2.jpg'),
                   )),
               SizedBox(width: 8,),
               Expanded(
@@ -32,7 +33,7 @@ class MyDRawer extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(user?.displayName.toString()??"Null",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                    Text("Welcome",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                     Text(user?.email.toString()??"Null",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,overflow: TextOverflow.clip),)
                   ],
                 ),
