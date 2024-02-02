@@ -40,7 +40,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
   String? EmailValidator(value){
     if(value.isEmpty){
-      return "This Field Is Required";
+      return "This Field Is Required ";
     }
     final bool emailValid =
     RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
