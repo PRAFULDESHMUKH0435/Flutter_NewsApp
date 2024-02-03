@@ -1,8 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:newsapp/CommonHelperServices/InternetConnectionCheck.dart';
 import 'package:newsapp/Screens/HomeScreen.dart';
 import 'package:newsapp/Screens/RegistrationScreen.dart';
+
+import 'ForgotPasswordScreen.dart';
 class LoginScreen extends StatefulWidget {
    LoginScreen({super.key});
 
@@ -43,11 +46,14 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: Colors.yellow,
       body: Form(
         key: _formkey,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
           children: [
+            SizedBox(
+              height: 250,
+              child: Lottie.asset('assets/Animations/Anim_1.json'),
+            ),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 8.0,vertical: 5.0),
+              margin: EdgeInsets.symmetric(horizontal: 8.0,vertical: 25.0),
               child: TextFormField(
                 controller: _usernamecontroller,
                 validator: UserNameValidator,
@@ -98,17 +104,28 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
             ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 15.0,vertical: 5.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                InkWell(
+                    onTap:(){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ForgotPasswordScreen()));
+                    },
+                    child: Text("Forgot Password?",style: TextStyle(fontSize: 15),))
+              ],),
+            ),
             InkWell(
               onTap: () async{
                 if(_formkey.currentState!.validate()){
                   SignInUser();
-                  // firebaseservices.LoginUser(_usernamecontroller.text.toString(), _passwordcontroller.text.toString(),context);
                 }else{
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("All Fields Are Mandatory")));
                 }
               },
               child: Container(
-                margin: EdgeInsets.symmetric(vertical: 5.0),
+                margin: EdgeInsets.symmetric(vertical: 5.0,horizontal: 60),
                 child: Center(child: Text("Login",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),)),
                 height: 60,
                 width: 150,
@@ -140,14 +157,17 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Future SignInUser()  async{
 
-     showDialog(context: context, builder: (context){
+     showDialog(
+         context: context,
+         barrierDismissible: false,
+         builder: (context){
        return Center(child: CircularProgressIndicator());
      });
 
      final _auth = await FirebaseAuth.instance;
      _auth.signInWithEmailAndPassword(
-         email:_usernamecontroller.text.toString(),
-         password:_passwordcontroller.text.toString())
+         email:_usernamecontroller.text.trim().toString(),
+         password:_passwordcontroller.text.trim().toString())
      .then((value){
        check.ShowSnackbar(context, "Login Successful");
        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>HomeScreen()), (route) => false);

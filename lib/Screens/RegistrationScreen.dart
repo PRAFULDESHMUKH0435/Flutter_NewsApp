@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:newsapp/Screens/HomeScreen.dart';
 import 'package:newsapp/Screens/LoginScreen.dart';
 import '../CommonHelperServices/InternetConnectionCheck.dart';
@@ -77,9 +78,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         key: _formkey,
         child: ListView(
           children: [
-            SizedBox(height: 80,),
+            SizedBox(
+              height: 250,
+              child: Lottie.asset('assets/Animations/Anim_1.json'),
+            ),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 8.0,vertical: 5.0),
+              margin: EdgeInsets.only(left: 8.0,right: 8.0,top: 20,bottom: 5.0),
               child: TextFormField(
                 keyboardType: TextInputType.name,
                 controller: _usernamecontroller,
@@ -110,7 +114,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 validator: EmailValidator,
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 decoration:const InputDecoration(
-                    suffixIcon: Icon(Icons.person_outline),
+                    suffixIcon: Icon(Icons.email_outlined),
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(14.0)),
                         borderSide: BorderSide(color: Colors.white70)
@@ -134,7 +138,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 validator: PhoneValidator,
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 decoration:const InputDecoration(
-                    suffixIcon: Icon(Icons.person_outline),
+                    suffixIcon: Icon(Icons.phone_outlined),
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(14.0)),
                         borderSide: BorderSide(color: Colors.white70)
@@ -157,7 +161,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 validator: AddressValidator,
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 decoration:const InputDecoration(
-                    suffixIcon: Icon(Icons.person_outline),
+                    suffixIcon: Icon(Icons.location_city_outlined),
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(14.0)),
                         borderSide: BorderSide(color: Colors.white70)
@@ -207,13 +211,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 if(_formkey.currentState!.validate()){
                   FocusManager.instance.primaryFocus?.unfocus();
                   CreateUserAndSaveData();
-                  // firebaseservices.RegisterUser(_usernamecontroller.text.toString(),_emailcontroller.text.toString(),_phonecontroller.text.toString(),_addresscontroller.text.toString(),_passwordcontroller.text.toString(),context);
                 }else{
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("All Fields Are Mandatory")));
                 }
               },
               child: Container(
-                margin: EdgeInsets.symmetric(vertical: 5.0,horizontal: 30.0),
+                margin: EdgeInsets.symmetric(vertical: 5.0,horizontal: 50.0),
                 child: Center(child: Text("Register",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),)),
                 height: 60,
                 width: 150,
@@ -245,15 +248,17 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
   Future CreateUserAndSaveData() async{
 
-    showDialog(context: context, builder: (context){
+    showDialog(
+        barrierDismissible: false,
+        context: context, builder: (context){
       return Center(child: CircularProgressIndicator());
     });
 
     print("EMAIL AND PASSWORD IS ${_emailcontroller.text.toString()}, ${_passwordcontroller.text.toString()}");
     final _auth = await FirebaseAuth.instance;
     _auth.createUserWithEmailAndPassword(
-        email: _emailcontroller.text.toString(),
-        password: _passwordcontroller.text.toString())
+        email: _emailcontroller.text.trim().toString(),
+        password: _passwordcontroller.text.trim().toString())
     .then((value){
       check.ShowSnackbar(context, "Saving UserData");
       SaveUserData();
@@ -265,12 +270,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
   Future SaveUserData() async{
     final _ref = await FirebaseFirestore.instance.collection("Users");
-    _ref.doc().set({
-      "FullName":_usernamecontroller.text.toString(),
-      "EmailAddress":_emailcontroller.text.toString(),
-      "PhoneNumber":_phonecontroller.text.toString(),
-      "PostalAddress":_addresscontroller.text.toString(),
-      "Password":_passwordcontroller.text.toString(),
+    final temp = await FirebaseAuth.instance.currentUser?.uid;
+    _ref.doc(temp).set({
+      "FullName":_usernamecontroller.text.trim().toString(),
+      "EmailAddress":_emailcontroller.text.trim().toString(),
+      "PhoneNumber":_phonecontroller.text.trim().toString(),
+      "PostalAddress":_addresscontroller.text.trim().toString(),
+      "Password":_passwordcontroller.text.trim().toString(),
     }).then((value){
       check.ShowSnackbar(context, "UserData Saved");
       Navigator.of(context).pop();
