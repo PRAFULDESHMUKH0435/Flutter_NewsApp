@@ -108,6 +108,7 @@ class ForgotPasswordScreen extends StatelessWidget {
       }
     }).onError((error, stackTrace) => {
       print(error.toString()),
+      check.ShowSnackbar(context, error.toString()),
     });
   }
 
