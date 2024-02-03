@@ -21,7 +21,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
    final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
-   // FirebaseServices firebaseservices = FirebaseServices();
 
    String? UserNameValidator(value){
      if(value.isEmpty){
@@ -140,9 +139,6 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future SignInUser()  async{
-     // setState(() {
-     //   _isloading=true;
-     // });
 
      showDialog(context: context, builder: (context){
        return Center(child: CircularProgressIndicator());
@@ -150,15 +146,14 @@ class _LoginScreenState extends State<LoginScreen> {
 
      final _auth = await FirebaseAuth.instance;
      _auth.signInWithEmailAndPassword(
-         email: _usernamecontroller.text.toString(),
-         password: _passwordcontroller.text.toString())
+         email:_usernamecontroller.text.toString(),
+         password:_passwordcontroller.text.toString())
      .then((value){
        check.ShowSnackbar(context, "Login Successful");
        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>HomeScreen()), (route) => false);
-       Navigator.of(context).pop();
      }).onError((error, stackTrace){
-       check.ShowSnackbar(context, error.toString());
        Navigator.of(context).pop();
+       check.ShowSnackbar(context, error.toString());
      });
 
   }
