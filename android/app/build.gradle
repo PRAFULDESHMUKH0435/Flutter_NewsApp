@@ -18,7 +18,7 @@ if (localPropertiesFile.exists()) {
 
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
 if (flutterVersionCode == null) {
-    flutterVersionCode = '2'
+    flutterVersionCode = '6'
 }
 
 def flutterVersionName = localProperties.getProperty('flutter.versionName')
@@ -27,7 +27,7 @@ if (flutterVersionName == null) {
 }
 
 android {
-    namespace "com.praful.newsapp"
+    namespace "com.prafulnew.newsappnew"
     compileSdkVersion 34
     ndkVersion flutter.ndkVersion
 
@@ -38,16 +38,16 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.praful.newsapp"
+        applicationId "com.prafulnew.newsappnew"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         minSdkVersion 21
-        targetSdkVersion 34
+        targetSdkVersion 33
         multiDexEnabled true
 //        versionCode flutterVersionCode.toInteger()
 //        versionName flutterVersionName
-         versionCode 3
-         versionName "1.0.0"
+         versionCode 6
+         versionName "1.0"
 
     }
 

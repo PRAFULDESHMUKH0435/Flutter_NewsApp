@@ -12,7 +12,20 @@
           "package_name": "com.praful.newsapp"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "268758589218-db9jguq5tpu28omlduq6vl057bqbabpu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.praful.newsapp",
+            "certificate_hash": "3498c0693b0d558b2fb6c8a2d66f876f4d54824a"
+          }
+        },
+        {
+          "client_id": "268758589218-2khad9niujmub784qrcnbgu9jijbc840.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCzEZNH23oeRYwFALKxjE9wm2JwcfZ-VrY"
@@ -20,7 +33,70 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "268758589218-2khad9niujmub784qrcnbgu9jijbc840.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:268758589218:android:68d3ea5dd27b9036b14f7b",
+        "android_client_info": {
+          "package_name": "com.prafulnew.newsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "268758589218-2khad9niujmub784qrcnbgu9jijbc840.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzEZNH23oeRYwFALKxjE9wm2JwcfZ-VrY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "268758589218-2khad9niujmub784qrcnbgu9jijbc840.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:268758589218:android:b7451fa23239c3e5b14f7b",
+        "android_client_info": {
+          "package_name": "com.prafulnew.newsappnew"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "268758589218-2khad9niujmub784qrcnbgu9jijbc840.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzEZNH23oeRYwFALKxjE9wm2JwcfZ-VrY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "268758589218-2khad9niujmub784qrcnbgu9jijbc840.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

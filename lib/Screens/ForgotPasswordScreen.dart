@@ -16,6 +16,12 @@ class ForgotPasswordScreen extends StatelessWidget {
     if(value?.isEmpty){
       return "Email Address Is Required";
     }
+    final bool emailValid =
+    RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+        .hasMatch(value);
+    if(!emailValid){
+      return "Invalid  Email Address";
+    }
     return null;
   }
 
@@ -61,7 +67,7 @@ class ForgotPasswordScreen extends StatelessWidget {
           ),
           InkWell(
             onTap: () async{
-              if(_forgotpasscontroller.text.trim().toString().isNotEmpty){
+              if(_forgotpasscontroller.text.trim().toString().toLowerCase().isNotEmpty){
                 showDialog(
                     barrierDismissible: false,
                     context: context,

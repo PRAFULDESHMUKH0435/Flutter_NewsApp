@@ -1,4 +1,4 @@
-package com.praful.newsapp;
+package com.prafulnew.newsappnew;
 
 import io.flutter.embedding.android.FlutterActivity;
 

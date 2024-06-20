@@ -55,6 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
             Container(
               margin: EdgeInsets.symmetric(horizontal: 8.0,vertical: 25.0),
               child: TextFormField(
+                keyboardType: TextInputType.emailAddress,
                 controller: _usernamecontroller,
                 validator: UserNameValidator,
                 autovalidateMode: AutovalidateMode.onUserInteraction,

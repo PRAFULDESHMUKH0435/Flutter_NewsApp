@@ -260,7 +260,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         email: _emailcontroller.text.trim().toString(),
         password: _passwordcontroller.text.trim().toString())
     .then((value){
-      check.ShowSnackbar(context, "Saving UserData");
+      check.ShowSnackbar(context, "Registering User");
       SaveUserData();
     }).onError((error, stackTrace){
       check.ShowSnackbar(context, error.toString());
@@ -278,7 +278,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       "PostalAddress":_addresscontroller.text.trim().toString(),
       "Password":_passwordcontroller.text.trim().toString(),
     }).then((value){
-      check.ShowSnackbar(context, "UserData Saved");
+      check.ShowSnackbar(context, "User Registration Successful");
       Navigator.of(context).pop();
       check.ShowSnackbar(context, "Signed In As ${_emailcontroller.text.toString()}");
       Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>HomeScreen()), (route) => false);
